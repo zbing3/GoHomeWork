@@ -18,10 +18,10 @@ func TestNewRingQueue(t *testing.T) {
 func TestPush(t *testing.T) {
 
 	for x := 1; x <= capacity+1; x++ {
-		push_status := rq.Push(x)
+		err := rq.Push(x)
 		fmt.Println(rq)
-		if push_status != nil {
-			t.Errorf("Pus(%d): capacity %d err %s", x, capacity, push_status)
+		if err != nil {
+			t.Errorf("Pus(%d): capacity %d err %s", x, capacity, err)
 
 		}
 	}
